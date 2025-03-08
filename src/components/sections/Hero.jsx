@@ -6,7 +6,7 @@ const Hero = () => {
     <section id="home" className="relative h-screen">
       <div className="absolute inset-0">
         <img
-          src="src\assets\images\background.avif"
+          src="public\images\background.avif"
           alt="Agriculture Equipment"
           className="w-full h-full object-cover"
         />
