@@ -53,11 +53,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <div
               className={`overflow-hidden transition-all duration-300 ${
-                isScrolled ? "h-10" : "h-12"
+                isScrolled ? "h-16" : "h-18"
               }`}
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo1.png"
                 alt="Company Logo"
                 className={`h-full object-contain transition-transform duration-300 ${
                   isScrolled ? "scale-95" : "scale-100"
