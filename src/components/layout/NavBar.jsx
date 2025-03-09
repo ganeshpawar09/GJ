@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,57 +39,9 @@ const Navbar = () => {
 
   const navItems = ["Home", "About", "Products", "Investment", "Founders"];
 
-  const logoVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-  };
-
-  const navItemVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: (index) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1 * index,
-        duration: 0.5,
-      },
-    }),
-  };
-
-  const mobileMenuVariants = {
-    hidden: { opacity: 0, height: 0, overflow: "hidden" },
-    visible: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        staggerChildren: 0.1,
-      },
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
-  const mobileItemVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3 },
-    },
-  };
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
-      className={`fixed w-full z-50 transition-all duration-100 ${
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white shadow-md py-2"
           : "bg-gradient-to-b from-black/70 to-transparent py-4"
@@ -98,45 +49,30 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Custom Logo Section */}
-          <motion.div
-            variants={logoVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex items-center"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
-              className="flex items-center"
+          {/* Logo Section */}
+          <div className="flex items-center">
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                isScrolled ? "h-10" : "h-12"
+              }`}
             >
-              {/* Custom Logo Image */}
-              <div
-                className={`overflow-hidden transition-all duration-100 ${
-                  isScrolled ? "h-10" : "h-12"
+              <img
+                src="/images/logo.png"
+                alt="Company Logo"
+                className={`h-full object-contain transition-transform duration-300 ${
+                  isScrolled ? "scale-95" : "scale-100"
                 }`}
-              >
-                <img
-                  src="/images/logo.png"
-                  className={`h-full object-contain transition-transform duration-100 ${
-                    isScrolled ? "scale-95" : "scale-100"
-                  }`}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
+              />
+            </div>
+          </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item, index) => (
-              <motion.a
+          <div className="hidden md:flex items-center space-x-2">
+            {navItems.map((item) => (
+              <a
                 key={item}
-                custom={index}
-                variants={navItemVariants}
-                initial="hidden"
-                animate="visible"
                 href={`#${item.toLowerCase()}`}
-                className={`px-4 py-2 rounded-md font-medium transition-colors ${
+                className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
                   activeSection === item.toLowerCase()
                     ? isScrolled
                       ? "text-emerald-700 bg-emerald-50"
@@ -145,30 +81,24 @@ const Navbar = () => {
                     ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/80"
                     : "text-gray-100 hover:text-white hover:bg-white/10"
                 }`}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
               >
                 {item}
-              </motion.a>
+              </a>
             ))}
 
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
               href="#contact"
-              className={`ml-2 px-5 py-2 rounded-md font-medium ${"bg-emerald-100 text-emerald-800 hover:bg-emerald-200"} transition-colors`}
+              className="ml-2 px-5 py-2 rounded-md font-medium bg-emerald-100 text-emerald-800 hover:bg-emerald-200 transition-colors duration-200"
             >
               Contact Us
-            </motion.a>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md ${
+              className={`p-2 rounded-md transition-colors duration-200 ${
                 isScrolled
                   ? "text-gray-800 hover:bg-gray-100"
                   : "text-white hover:bg-white/10"
@@ -176,61 +106,49 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="md:hidden bg-white rounded-lg mt-2 py-2 shadow-xl overflow-hidden"
-            >
-              {navItems.map((item) => (
-                <motion.a
-                  key={item}
-                  variants={mobileItemVariants}
-                  href={`#${item.toLowerCase()}`}
-                  className={`flex items-center px-4 py-3 ${
-                    activeSection === item.toLowerCase()
-                      ? "text-emerald-700 bg-emerald-50 font-medium"
-                      : "text-gray-700 hover:bg-gray-50"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <ChevronRight
-                    size={16}
-                    className={
-                      activeSection === item.toLowerCase()
-                        ? "text-emerald-500"
-                        : "text-gray-400"
-                    }
-                  />
-                  <span className="ml-2">{item}</span>
-                </motion.a>
-              ))}
-
-              <motion.div
-                variants={mobileItemVariants}
-                className="px-4 pt-4 pb-2 mt-2 border-t border-gray-100"
+        {isOpen && (
+          <div className="md:hidden bg-white rounded-lg mt-2 py-2 shadow-xl overflow-hidden transition-all duration-300">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`flex items-center px-4 py-3 transition-colors duration-200 ${
+                  activeSection === item.toLowerCase()
+                    ? "text-emerald-700 bg-emerald-50 font-medium"
+                    : "text-gray-700 hover:bg-gray-50"
+                }`}
+                onClick={() => setIsOpen(false)}
               >
-                <a
-                  href="#contact"
-                  className="w-full block text-center py-2 px-4 bg-emerald-100 text-emerald-800 rounded-md hover:bg-emerald-200 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact Us
-                </a>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <ChevronRight
+                  size={16}
+                  className={
+                    activeSection === item.toLowerCase()
+                      ? "text-emerald-500"
+                      : "text-gray-400"
+                  }
+                />
+                <span className="ml-2">{item}</span>
+              </a>
+            ))}
+
+            <div className="px-4 pt-4 pb-2 mt-2 border-t border-gray-100">
+              <a
+                href="#contact"
+                className="w-full block text-center py-2 px-4 bg-emerald-100 text-emerald-800 rounded-md hover:bg-emerald-200 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        )}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
