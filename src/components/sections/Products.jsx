@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Check } from "lucide-react";
-import { products } from "../data/ProductData";
+import { products } from "../Data/ProductData";
 
 const Products = () => {
   const [ref, inView] = useInView({

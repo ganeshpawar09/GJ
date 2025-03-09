@@ -14,7 +14,7 @@ import {
   socialLinks,
   formFields,
   footerText,
-} from "../data/FooterData";
+} from "../Data/FooterData";
 
 const Footer = () => {
   const [formData, setFormData] = useState({

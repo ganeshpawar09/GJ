@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { milestones } from "../data/InvestementsData";
+import { milestones } from "../Data/InvestementsData";
 
 const Investments = () => {
   const [ref, inView] = useInView({

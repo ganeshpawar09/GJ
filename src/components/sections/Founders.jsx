@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Linkedin, Twitter, Mail, ExternalLink } from "lucide-react";
-import { founders } from "../data/FounderData";
+import { founders } from "../Data/FounderData";
 
 const Founders = () => {
   const [ref, inView] = useInView({
