@@ -1,11 +1,11 @@
 import React from "react";
-import Hero from "./components/Sections/Hero";
-import About from "./components/Sections/About";
-import Products from "./components/Sections/Products";
-import Investments from "./components/Sections/Investments";
-import Founders from "./components/Sections/Founders";
-import NavBar from "./components/Layout/NavBar";
-import Footer from "./components/Layout/Footer";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Products from "./components/sections/Products";
+import Investments from "./components/sections/Investments";
+import Founders from "./components/sections/Founders";
+import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
