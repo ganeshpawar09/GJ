@@ -157,7 +157,7 @@ const Products = () => {
                       href="#contact"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-emerald-100 hover:bg-emerald-200 text-emerald-00 px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
+                      className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
                     >
                       Contact Our Team
                     </motion.a>
