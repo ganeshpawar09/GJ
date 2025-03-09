@@ -1,54 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { milestones } from "../Data/InvestementsData";
 
-const Investment = () => {
+const Investments = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const milestones = [
-    {
-      year: "2024",
-      title: "NIDHI PRAYAS Grant",
-      amount: "₹9 Lakhs",
-      partner: "COEP's Bhau Institute",
-      program: "DST NIDHI PRAYAS Program",
-      description: "For the development of our innovative Multicrop Digger",
-      mentors: [
-        "Mandar Joshi",
-        "Ridhiemaa Pawar",
-        "Girish Degaonkar",
-        "Prashant Kharangate",
-        "Narendra Kale",
-        "Sanjay Inamdar",
-        "Dr. Anita Gupta",
-      ],
-      institution: "Department of Science and Technology, Government of India",
-      logo: "/api/placeholder/80/80",
-    },
-    {
-      year: "2025",
-      title: "RKVY Innovation Grant",
-      amount: "₹5 Lakhs",
-      partner: "Pusa Krishi",
-      program: "RKVY Innovation and Agri-Entrepreneurship Development Program",
-      description: "For the advancement of our Onion Combine Harvester",
-      mentors: [
-        "Mandar Patil",
-        "Atul Dhamne",
-        "Chetna Joel",
-        "Vishal Pillai",
-        "Mandar Joshi",
-        "Ridhiemaa Pawar",
-        "Prashant Kharangate",
-      ],
-      institution:
-        "Ministry of Agriculture & Farmers Welfare, Government of India",
-      logo: "/api/placeholder/80/80",
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -183,4 +142,4 @@ const Investment = () => {
   );
 };
 
-export default Investment;
+export default Investments;

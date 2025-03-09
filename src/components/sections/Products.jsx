@@ -1,52 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Tractor,
-  Clock,
-  Ruler,
-  Package,
-  CreditCard,
-  User,
-  Check,
-} from "lucide-react";
+import { Check } from "lucide-react";
+import { products } from "../Data/ProductData";
 
 const Products = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const products = [
-    {
-      name: "Onion Harvester Pro",
-      description:
-        "Our advanced onion harvester maximizes efficiency while minimizing labor costs. This complete solution handles digging, cutting, sorting, and storage in one integrated system, making it perfect for all soil and plantation types.",
-      image: "/api/placeholder/600/400",
-      specs: [
-        { icon: Tractor, label: "Tractor Required", value: "65 Hp (4WD)" },
-        { icon: Clock, label: "Harvesting Time", value: "3 Hour Per Acre" },
-        { icon: Ruler, label: "Harvesting Width", value: "6.5 Feet" },
-        { icon: Package, label: "Storage Capacity", value: "1 Ton" },
-        {
-          icon: CreditCard,
-          label: "Harvesting Cost",
-          value: "3000 Rs Per Acre",
-        },
-        { icon: User, label: "Labor Required", value: "1 Tractor Driver" },
-      ],
-      features: [
-        "Onion digging",
-        "Leaves and roots cutting",
-        "Onion storage on tractor",
-        "Separation of onions, stones, clods, soil, and weeds",
-        "Works with all soil types",
-        "Compatible with all plantation methods (Raised Bed, Flat Bed, Flooded Bed)",
-      ],
-      tags: ["Government Funded", "Patent Pending", "Made in India"],
-      fundedBy: "Pusa Krishi RKVY Program",
-    },
-  ];
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -195,9 +157,9 @@ const Products = () => {
                       href="#contact"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
+                      className="bg-emerald-100 hover:bg-emerald-200 text-emerald-00 px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
                     >
-                      Contact Us
+                      Contact Our Team
                     </motion.a>
                   </div>
                 </div>

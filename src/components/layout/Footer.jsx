@@ -9,6 +9,12 @@ import {
   Facebook,
   Send,
 } from "lucide-react";
+import {
+  contactInfo,
+  socialLinks,
+  formFields,
+  footerText,
+} from "../Data/FooterData";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -18,43 +24,27 @@ const Footer = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Form submitted:", formData);
-    // Reset form after submission
     setFormData({ name: "", email: "", message: "" });
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <footer id="contact" className="bg-emerald-900 text-white pt-16 pb-8">
+    <footer id="contact" className="bg-emerald-50 text-emerald-900 pt-16 pb-8">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -63,11 +53,13 @@ const Footer = () => {
         className="container mx-auto px-4"
       >
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-4 text-emerald-800">
+            Contact Us
+          </h2>
           <div className="flex justify-center">
             <div className="w-20 h-1 bg-emerald-500 rounded-full"></div>
           </div>
-          <p className="mt-4 text-emerald-100 max-w-2xl mx-auto">
+          <p className="mt-4 text-emerald-700 max-w-2xl mx-auto">
             Get in touch with us for inquiries about our agricultural equipment
             or to schedule a demonstration.
           </p>
@@ -76,139 +68,117 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <motion.div
             variants={itemVariants}
-            className="bg-emerald-800 rounded-lg p-6 h-full flex flex-col"
+            className="bg-white rounded-lg p-6 h-full flex flex-col shadow-md border border-emerald-100"
           >
-            <h3 className="text-xl font-bold mb-6 text-emerald-100">
+            <h3 className="text-xl font-bold mb-6 text-emerald-800">
               Direct Contact
             </h3>
 
             <div className="space-y-4 flex-grow">
+              {contactInfo.phones.map((phone, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  className="flex items-start"
+                >
+                  <Phone className="mr-3 h-5 w-5 text-emerald-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-medium text-emerald-800">Phone</p>
+                    <a
+                      href={`tel:${phone}`}
+                      className="text-emerald-700 hover:text-emerald-500 transition-colors"
+                    >
+                      {phone}
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+
               <motion.div whileHover={{ x: 5 }} className="flex items-start">
-                <Phone className="mr-3 h-5 w-5 text-emerald-400 flex-shrink-0 mt-1" />
+                <Mail className="mr-3 h-5 w-5 text-emerald-600 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-medium text-emerald-200">Phone</p>
+                  <p className="font-medium text-emerald-800">Email</p>
                   <a
-                    href="tel:+919876543210"
-                    className="hover:text-emerald-400 transition-colors"
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-emerald-700 hover:text-emerald-500 transition-colors"
                   >
-                    +91 9876 543 210
-                  </a>
-                  <br />
-                  <a
-                    href="tel:+919876543211"
-                    className="hover:text-emerald-400 transition-colors"
-                  >
-                    +91 9876 543 211
+                    {contactInfo.email}
                   </a>
                 </div>
               </motion.div>
 
               <motion.div whileHover={{ x: 5 }} className="flex items-start">
-                <Mail className="mr-3 h-5 w-5 text-emerald-400 flex-shrink-0 mt-1" />
+                <MapPin className="mr-3 h-5 w-5 text-emerald-600 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-medium text-emerald-200">Email</p>
-                  <a
-                    href="mailto:contact@ghodejadhav.com"
-                    className="hover:text-emerald-400 transition-colors"
-                  >
-                    ghode.jadhav@gmail.com
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div whileHover={{ x: 5 }} className="flex items-start">
-                <MapPin className="mr-3 h-5 w-5 text-emerald-400 flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-medium text-emerald-200">Office Address</p>
-                  <address className="not-italic">
-                    123 Agricultural Hub,
-                    <br />
-                    Technical Park, Phase 1,
-                    <br />
-                    Pune, Maharashtra - 411057
+                  <p className="font-medium text-emerald-800">Office Address</p>
+                  <address className="not-italic text-emerald-700">
+                    {contactInfo.address.split("\n").map((line, index) => (
+                      <div key={index}>{line}</div>
+                    ))}
                   </address>
                 </div>
               </motion.div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-emerald-700">
-              <p className="text-sm text-emerald-300 mb-3">Connect With Us</p>
+            <div className="mt-6 pt-6 border-t border-emerald-100">
+              <p className="text-sm text-emerald-700 mb-3">Connect With Us</p>
               <div className="flex space-x-4">
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href="#"
-                  className="bg-emerald-700 p-2 rounded-full hover:bg-emerald-600 transition-colors"
-                >
-                  <Linkedin size={18} />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href="#"
-                  className="bg-emerald-700 p-2 rounded-full hover:bg-emerald-600 transition-colors"
-                >
-                  <Twitter size={18} />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -3 }}
-                  href="#"
-                  className="bg-emerald-700 p-2 rounded-full hover:bg-emerald-600 transition-colors"
-                >
-                  <Facebook size={18} />
-                </motion.a>
+                {socialLinks.map((link, index) => {
+                  const Icon =
+                    link.icon === "Linkedin"
+                      ? Linkedin
+                      : link.icon === "Twitter"
+                      ? Twitter
+                      : Facebook;
+                  return (
+                    <motion.a
+                      key={index}
+                      whileHover={{ y: -3 }}
+                      href={link.href}
+                      className="bg-emerald-100 text-emerald-600 p-2 rounded-full hover:bg-emerald-200 transition-colors"
+                    >
+                      <Icon size={18} />
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="md:col-span-2 bg-emerald-800 rounded-lg p-6"
+            className="md:col-span-2 bg-white rounded-lg p-6 shadow-md border border-emerald-100"
           >
-            <h3 className="text-xl font-bold mb-6 text-emerald-100">
+            <h3 className="text-xl font-bold mb-6 text-emerald-800">
               Send Us a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-emerald-200 mb-1"
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 rounded-md bg-emerald-700 border border-emerald-600 text-white placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-emerald-200 mb-1"
-                  >
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 rounded-md bg-emerald-700 border border-emerald-600 text-white placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="Enter your email"
-                  />
-                </div>
+                {formFields.map((field) => (
+                  <div key={field.id}>
+                    <label
+                      htmlFor={field.id}
+                      className="block text-sm font-medium text-emerald-700 mb-1"
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      id={field.id}
+                      name={field.id}
+                      value={formData[field.id]}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      placeholder={field.placeholder}
+                    />
+                  </div>
+                ))}
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-emerald-200 mb-1"
+                  className="block text-sm font-medium text-emerald-700 mb-1"
                 >
                   Your Message
                 </label>
@@ -219,7 +189,7 @@ const Footer = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-2 rounded-md bg-emerald-700 border border-emerald-600 text-white placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   placeholder="What would you like to know about our agricultural solutions?"
                 ></textarea>
               </div>
@@ -227,11 +197,10 @@ const Footer = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  className="bg-emerald-100 hover:bg-emerald-200 text-emerald-00 px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
                   type="submit"
-                  className="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-md transition-colors font-medium"
                 >
                   Send Message
-                  <Send size={16} className="ml-2" />
                 </motion.button>
               </div>
             </form>
@@ -240,11 +209,9 @@ const Footer = () => {
 
         <motion.div
           variants={itemVariants}
-          className="pt-6 border-t border-emerald-800 text-center"
+          className="pt-6 border-t border-emerald-200 text-center"
         >
-          <p className="text-emerald-300">
-            &copy; 2025 Ghode & Jadhav Agritech. All rights reserved.
-          </p>
+          <p className="text-emerald-700">{footerText}</p>
         </motion.div>
       </motion.div>
     </footer>

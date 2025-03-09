@@ -17,7 +17,7 @@ const Navbar = () => {
         "about",
         "products",
         "investment",
-        "team",
+        "founders",
         "contact",
       ];
       const currentSection = sections.find((section) => {
@@ -38,7 +38,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Home", "About", "Products", "Investment", "Team"];
+  const navItems = ["Home", "About", "Products", "Investment", "Founders"];
 
   const logoVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -93,12 +93,12 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white shadow-md py-2"
-          : "bg-gradient-to-b from-black/60 to-transparent py-4"
+          : "bg-gradient-to-b from-black/70 to-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Custom Logo Section */}
           <motion.div
             variants={logoVariants}
             initial="hidden"
@@ -108,19 +108,20 @@ const Navbar = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className={`flex items-center ${
-                isScrolled ? "text-emerald-800" : "text-white"
-              }`}
+              className="flex items-center"
             >
-              {/* Logo Icon */}
+              {/* Custom Logo Image */}
               <div
-                className={`mr-3 w-10 h-10 rounded-full flex items-center justify-center ${
-                  isScrolled
-                    ? "bg-emerald-600 text-white"
-                    : "bg-emerald-600 text-white"
+                className={`overflow-hidden transition-all duration-300 ${
+                  isScrolled ? "h-10" : "h-12"
                 }`}
               >
-                <span className="font-bold text-lg">GJ</span>
+                <img
+                  src="/images/logo.png"
+                  className={`h-full object-contain transition-transform duration-300 ${
+                    isScrolled ? "scale-95" : "scale-100"
+                  }`}
+                />
               </div>
             </motion.div>
           </motion.div>
@@ -155,11 +156,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#contact"
-              className={`ml-2 px-5 py-2 rounded-md font-medium ${
-                isScrolled
-                  ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                  : "bg-emerald-600/90 text-white hover:bg-emerald-600"
-              } transition-colors`}
+              className={`ml-2 px-5 py-2 rounded-md font-medium ${"bg-emerald-100 text-emerald-800 hover:bg-emerald-200"} transition-colors`}
             >
               Contact Us
             </motion.a>
@@ -223,7 +220,7 @@ const Navbar = () => {
               >
                 <a
                   href="#contact"
-                  className="w-full block text-center py-2 px-4 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 transition-colors"
+                  className="w-full block text-center py-2 px-4 bg-emerald-100 text-emerald-800 rounded-md hover:bg-emerald-200 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Contact Us
