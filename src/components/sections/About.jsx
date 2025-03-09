@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { features, partners, aboutContent } from "../data/AboutData";
+import { features, partners, aboutContent } from "../Data/AboutData";
 const icons = { Tractor, Sprout, TrendingUp, Award, Factory, Users };
 
 const About = () => {

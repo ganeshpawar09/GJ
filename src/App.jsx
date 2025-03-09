@@ -1,16 +1,16 @@
 import React from "react";
-import Navbar from "./components/layout/NavBar";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
+import Hero from "./components/Sections/Hero";
+import About from "./components/Sections/About";
 import Products from "./components/Sections/Products";
 import Investments from "./components/Sections/Investments";
 import Founders from "./components/Sections/Founders";
-import Footer from "./components/layout/Footer";
+import NavBar from "./components/Layout/NavBar";
+import Footer from "./components/Layout/Footer";
 
 function App() {
   return (
     <div className="font-sans">
-      <Navbar />
+      <NavBar />
       <Hero />
       <About />
       <Products />
