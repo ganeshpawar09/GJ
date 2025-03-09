@@ -90,7 +90,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-100 ${
         isScrolled
           ? "bg-white shadow-md py-2"
           : "bg-gradient-to-b from-black/70 to-transparent py-4"
@@ -112,13 +112,13 @@ const Navbar = () => {
             >
               {/* Custom Logo Image */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${
+                className={`overflow-hidden transition-all duration-100 ${
                   isScrolled ? "h-10" : "h-12"
                 }`}
               >
                 <img
                   src="/images/logo.png"
-                  className={`h-full object-contain transition-transform duration-300 ${
+                  className={`h-full object-contain transition-transform duration-100 ${
                     isScrolled ? "scale-95" : "scale-100"
                   }`}
                 />
