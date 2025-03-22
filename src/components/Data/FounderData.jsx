@@ -18,7 +18,7 @@ export const founders = [
   },
   {
     name: "Rushi Jadhav",
-    role: "Co-Founder & Chief Technical Officer (CTO)",
+    role: "Co-Founder & CTO",
     image: "/images/founder/Rushi.jpg",
     bio: "With over 3 years of expertise in agricultural machinery development, he specializes in 3D CAD modeling, machine mechanism design, product development, and manufacturing. His technical proficiency plays a key role in driving innovation and enhancing product efficiency.",
     expertise: [
