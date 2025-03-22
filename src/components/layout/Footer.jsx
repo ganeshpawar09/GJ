@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Phone,
@@ -7,32 +7,11 @@ import {
   Linkedin,
   Twitter,
   Facebook,
-  Send,
+  Instagram,
 } from "lucide-react";
-import {
-  contactInfo,
-  socialLinks,
-  formFields,
-  footerText,
-} from "../Data/FooterData";
+import { contactInfo, socialLinks, footerText } from "../Data/FooterData";
 
 const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -65,13 +44,14 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {/* Centered container for contact details */}
+        <div className="flex justify-center mb-12">
           <motion.div
             variants={itemVariants}
-            className="bg-white rounded-lg p-6 h-full flex flex-col shadow-md border border-emerald-100"
+            className="bg-white rounded-lg p-6 h-full flex flex-col shadow-md border border-emerald-100 max-w-lg w-full"
           >
-            <h3 className="text-xl font-bold mb-6 text-emerald-800">
-              Direct Contact
+            <h3 className="text-xl font-bold mb-6 text-emerald-800 text-center">
+              Contact Details
             </h3>
 
             <div className="space-y-4 flex-grow">
@@ -121,20 +101,26 @@ const Footer = () => {
             </div>
 
             <div className="mt-6 pt-6 border-t border-emerald-100">
-              <p className="text-sm text-emerald-700 mb-3">Connect With Us</p>
-              <div className="flex space-x-4">
+              <p className="text-sm text-emerald-700 mb-3 text-center">
+                Connect With Us
+              </p>
+              <div className="flex justify-center space-x-4">
                 {socialLinks.map((link, index) => {
                   const Icon =
                     link.icon === "Linkedin"
                       ? Linkedin
                       : link.icon === "Twitter"
                       ? Twitter
+                      : link.icon === "Instagram"
+                      ? Instagram
                       : Facebook;
                   return (
                     <motion.a
                       key={index}
                       whileHover={{ y: -3 }}
                       href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-emerald-100 text-emerald-600 p-2 rounded-full hover:bg-emerald-200 transition-colors"
                     >
                       <Icon size={18} />
@@ -143,67 +129,6 @@ const Footer = () => {
                 })}
               </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-2 bg-white rounded-lg p-6 shadow-md border border-emerald-100"
-          >
-            <h3 className="text-xl font-bold mb-6 text-emerald-800">
-              Send Us a Message
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {formFields.map((field) => (
-                  <div key={field.id}>
-                    <label
-                      htmlFor={field.id}
-                      className="block text-sm font-medium text-emerald-700 mb-1"
-                    >
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type}
-                      id={field.id}
-                      name={field.id}
-                      value={formData[field.id]}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-emerald-700 mb-1"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-2 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 placeholder-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="What would you like to know about our agricultural solutions?"
-                ></textarea>
-              </div>
-              <div className="flex justify-end">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-emerald-100 hover:bg-emerald-200 text-emerald-00 px-6 py-3 rounded-lg font-medium w-full sm:w-auto text-center"
-                  type="submit"
-                >
-                  Send Message
-                </motion.button>
-              </div>
-            </form>
           </motion.div>
         </div>
 

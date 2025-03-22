@@ -1,16 +1,27 @@
 // footerData.js
 export const contactInfo = {
-  phones: ["+91 9876 543 210", "+91 9876 543 211"],
+  phones: ["+91 7775 922 333", "+91 7972 408 866 "],
   email: "ghode.jadhav@gmail.com",
-  address: `123 Agricultural Hub,
-    Technical Park, Phase 1,
-    Pune, Maharashtra - 411057`,
+  address: `Belwandi Kothar, Shrigonda, Ahmednagar, Maharashtra-413701`,
 };
 
 export const socialLinks = [
-  { href: "#", icon: "Linkedin" },
-  { href: "#", icon: "Twitter" },
-  { href: "#", icon: "Facebook" },
+  {
+    href: "https://www.linkedin.com/company/ghode-jadhav-agritech/",
+    icon: "Linkedin",
+  },
+  {
+    href: "https://x.com/Ghode_Jadhav_A",
+    icon: "Twitter",
+  },
+  {
+    href: "https://www.facebook.com/people/Ghode-Jadhav-Agritech/61571197872074/",
+    icon: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/ghode_jadhav_agritech_/",
+    icon: "Instagram",
+  },
 ];
 
 export const formFields = [
@@ -29,4 +40,4 @@ export const formFields = [
 ];
 
 export const footerText =
-  "© 2025 Ghode & Jadhav Agritech. All rights reserved.";
+  "© 2025 Ghode & Jadhav Agritech Equipments Industries Private Limited. All rights reserved.";

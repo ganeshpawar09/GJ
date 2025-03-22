@@ -1,18 +1,11 @@
-import {
-  Tractor,
-  Clock,
-  Ruler,
-  Package,
-  CreditCard,
-  User,
-} from "lucide-react";
+import { Tractor, Clock, Ruler, Package, CreditCard, User } from "lucide-react";
 
 export const products = [
   {
     name: "Onion Harvester Pro",
     description:
       "Our advanced onion harvester maximizes efficiency while minimizing labor costs. This complete solution handles digging, cutting, sorting, and storage in one integrated system, making it perfect for all soil and plantation types.",
-    image: "/api/placeholder/600/400",
+    images: ["images/onionHarvester/1.jpg", "images/onionHarvester/2.jpg"],
     specs: [
       { icon: Tractor, label: "Tractor Required", value: "65 Hp (4WD)" },
       { icon: Clock, label: "Harvesting Time", value: "3 Hour Per Acre" },
@@ -33,6 +26,10 @@ export const products = [
       "Works with all soil types",
       "Compatible with all plantation methods (Raised Bed, Flat Bed, Flooded Bed)",
     ],
+    price: {
+      currency: "INR",
+      amount: "14,00,000",
+    },
     tags: ["Government Funded", "Patent Pending", "Made in India"],
     fundedBy: "Pusa Krishi RKVY Program",
   },

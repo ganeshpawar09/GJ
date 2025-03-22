@@ -6,6 +6,7 @@ import Investments from "./components/sections/Investments";
 import Founders from "./components/sections/Founders";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
+import Careers from "./components/sections/Careers";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Products />
       <Investments />
       <Founders />
+      <Careers />
       <Footer />
     </div>
   );

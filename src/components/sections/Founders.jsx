@@ -128,25 +128,9 @@ const Founders = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.2 }}
-                          className="text-gray-500 hover:text-blue-600"
+                          className="bg-emerald-100 text-emerald-600 p-2 rounded-full hover:bg-emerald-200 transition-colors"
                         >
                           <Linkedin size={20} />
-                        </motion.a>
-                        <motion.a
-                          href={founder.social.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.2 }}
-                          className="text-gray-500 hover:text-blue-400"
-                        >
-                          <Twitter size={20} />
-                        </motion.a>
-                        <motion.a
-                          href={`mailto:${founder.social.email}`}
-                          whileHover={{ scale: 1.2 }}
-                          className="text-gray-500 hover:text-emerald-600"
-                        >
-                          <Mail size={20} />
                         </motion.a>
                       </div>
                     </div>

@@ -17,6 +17,7 @@ const Navbar = () => {
         "products",
         "investment",
         "founders",
+        "careers",
         "contact",
       ];
       const currentSection = sections.find((section) => {
@@ -37,7 +38,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Home", "About", "Products", "Investment", "Founders"];
+  const navItems = [
+    "Home",
+    "About",
+    "Products",
+    "Investment",
+    "Founders",
+    "Careers",
+  ];
 
   return (
     <nav

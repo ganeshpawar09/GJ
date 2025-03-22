@@ -6,6 +6,8 @@ import {
   Award,
   Factory,
   Users,
+  Target,
+  Compass,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -82,6 +84,59 @@ const About = () => {
               ))}
             </motion.div>
           </div>
+
+          {/* Vision and Mission Section */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+          >
+            {/* Vision Card */}
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="p-8 bg-white rounded-xl shadow-md border-l-4 border-emerald-500 h-full flex flex-col"
+            >
+              <div className="mb-6 flex items-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mr-4">
+                  <Target className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-emerald-800">
+                  Our Vision
+                </h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed italic">
+                "To be a leader in agricultural innovation by providing
+                sustainable and advanced mechanization solutions that transform
+                farming practices, increase profitability, and improve the
+                livelihoods of farmers."
+              </p>
+            </motion.div>
+
+            {/* Mission Card */}
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="p-8 bg-white rounded-xl shadow-md border-l-4 border-emerald-500 h-full flex flex-col"
+            >
+              <div className="mb-6 flex items-center">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mr-4">
+                  <Compass className="w-6 h-6 text-emerald-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-emerald-800">
+                  Our Mission
+                </h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed italic">
+                "We aim to deliver efficient, high-performance agricultural
+                equipment like onion combine harvesters and multicrop diggers,
+                enabling farmers to overcome challenges in harvesting and crop
+                management with affordable, eco-friendly, and innovative
+                machinery solutions."
+              </p>
+            </motion.div>
+          </motion.div>
 
           <motion.div
             variants={itemVariants}
