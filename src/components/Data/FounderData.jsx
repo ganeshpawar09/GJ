@@ -3,7 +3,7 @@ export const founders = [
     name: "Sagar Ghode",
     role: "Co-Founder & CEO",
     image: "/images/founder/Sagar.png",
-    bio: "Bringing over 3 years of hands-on experience in agricultural machinery development, our CEO excels in field testing, farming practices, management, and mechanism design. His practical expertise drives innovation and ensures our machines perform optimally in real-world conditions.",
+    bio: "With over 3 years of experience in agricultural machinery development, he specializes in field testing, farming practices, mechanism design, and management. His hands-on approach ensures that innovations translate into practical, high-performing solutions for real-world applications.",
     expertise: [
       "Agricultural Machinery Development",
       "Field Testing",
@@ -20,7 +20,7 @@ export const founders = [
     name: "Rushi Jadhav",
     role: "Co-Founder & Chief Technical Officer (CTO)",
     image: "/images/founder/Rushi.jpg",
-    bio: "Rushi Vilas Jadhav, our CTO, is a specialist in 3D CAD modeling and design with 3 years of experience in agriculture machinery development. His technical acumen in designing machine mechanisms has been crucial in advancing our product development and manufacturing capabilities.",
+    bio: "With over 3 years of expertise in agricultural machinery development, he specializes in 3D CAD modeling, machine mechanism design, product development, and manufacturing. His technical proficiency plays a key role in driving innovation and enhancing product efficiency.",
     expertise: [
       "3D CAD Modeling",
       "Machine Mechanism Design",
